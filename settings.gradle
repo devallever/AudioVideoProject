@@ -7,4 +7,14 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "AudioVideoProject"
-include ':app'
+include ':app', ':common'
+
+
+include ':core'
+project(':core').projectDir = new File(settingsDir, '../../allever-projects/AndroidBaseLibs/core')
+
+include ':widget'
+project(':widget').projectDir = new File(settingsDir, '../../allever-projects/AndroidBaseLibs/widget')
+
+include ':mvvm'
+project(':mvvm').projectDir = new File(settingsDir, '../../allever-projects/AndroidBaseLibs/mvvm')
