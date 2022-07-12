@@ -1,10 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
-        maven { url 'https://jitpack.io' }
         google()
         mavenCentral()
         maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+        maven { url 'https://jitpack.io' }
         jcenter()
     }
     dependencies {
@@ -33,6 +33,7 @@ ext {
     androidXAppcompat = "androidx.appcompat:appcompat:1.3.1"
     androidXAnnotation = "androidx.annotation:annotation:1.3.0"
     androidXActivityKtx = "androidx.activity:activity-ktx:1.4.0"
+    androidXFragmentKtx = "androidx.fragment:fragment-ktx:1.4.0"
 
     androidXConstraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
     androidXCoordinatorLayout = "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
@@ -181,6 +182,7 @@ ext {
     androidAudioConverter = "com.github.adrielcafe:AndroidAudioConverter:0.0.8"
 
     photoView = "com.bm.photoview:library:1.4.1"
+    chrisbanesPhotoView = "com.github.chrisbanes:PhotoView:2.0.0"
 
     androidOAID = "com.github.gzu-liyujiang:Android_CN_OAID:4.2.4"
 
@@ -201,5 +203,4 @@ ext {
     basePopup = "io.github.razerdp:BasePopup:3.2.0"
 //Other---------------------------------------------------------------------------------------------
 }
-
 
