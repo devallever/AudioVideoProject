@@ -19,8 +19,6 @@ class SelectMediaActivity : BaseActivity<ActivitySelectMediaBinding, SelectMedia
         binding.btnSelectMedia.setOnClickListener {
             MediaPicker.launchPickerActivity(
                 MediaHelper.TYPE_VIDEO,
-                MediaHelper.TYPE_IMAGE,
-                MediaHelper.TYPE_AUDIO,
                 mediaPickerListener = object : MediaPickerListener {
                     override fun onPicked(
                         all: MutableList<MediaBean>,
