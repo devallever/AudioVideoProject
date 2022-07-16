@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".videoviewplayer.VideoViewPlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenStyle"/>
         <activity android:name=".SelectMediaActivity"/>
