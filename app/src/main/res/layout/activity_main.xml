@@ -32,6 +32,11 @@
                     android:id="@+id/btnVideoViewPlayer"
                     style="@style/main_menu_item_style" />
 
+                <TextView
+                    android:text="TextureView播放器"
+                    android:id="@+id/btnTextureViewPlayer"
+                    style="@style/main_menu_item_style" />
+
             </LinearLayout>
 
         </ScrollView>

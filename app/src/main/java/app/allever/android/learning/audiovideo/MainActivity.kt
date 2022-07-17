@@ -13,11 +13,19 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override fun init() {
         initTopBar("音视频", showBackIcon = false)
         RippleHelper.addRippleView(binding.btnVideoViewPlayer)
-        
+        RippleHelper.addRippleView(binding.btnTextureViewPlayer)
+
         binding.btnVideoViewPlayer.setOnClickListener {
-            ActivityHelper.startActivity(SelectMediaActivity::class.java)
+            ActivityHelper.startActivity(SelectMediaActivity::class.java) {
+                putExtra("TYPE", 0)
+            }
         }
 
+        binding.btnTextureViewPlayer.setOnClickListener {
+            ActivityHelper.startActivity(SelectMediaActivity::class.java) {
+                putExtra("TYPE", 1)
+            }
+        }
 
     }
 

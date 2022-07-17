@@ -26,7 +26,12 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/FullScreenStyle"/>
+        <activity android:name=".textureviewplayer.TextureViewPlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreenStyle"/>
         <activity android:name=".SelectMediaActivity"/>
+
     </application>
 
 </manifest>
