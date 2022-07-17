@@ -13,6 +13,7 @@ import android.widget.SeekBar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import app.allever.android.learning.audiovideo.R
+import app.allever.android.learning.audiovideo.StatusListener
 import app.allever.android.learning.audiovideo.databinding.TexturePlayerViewBinding
 import app.allever.android.learning.audiovideo.videoviewplayer.VideoViewHandler
 import app.allever.android.lib.core.ext.log
@@ -25,7 +26,7 @@ import kotlin.math.abs
 
 class TexturePlayerView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
-) : ConstraintLayout(context, attrs), TextureViewHandler.StatusListener {
+) : ConstraintLayout(context, attrs), StatusListener {
     private var binding: TexturePlayerViewBinding
     private lateinit var mMediaBean: MediaBean
     private val mTextureViewHandler: TextureViewHandler by lazy {

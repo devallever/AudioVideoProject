@@ -4,9 +4,9 @@ import android.graphics.Color
 import android.media.MediaPlayer
 import android.widget.MediaController
 import android.widget.VideoView
+import app.allever.android.learning.audiovideo.StatusListener
 import app.allever.android.lib.core.ext.log
 import app.allever.android.lib.core.function.media.MediaBean
-import app.allever.android.lib.core.function.work.PollingTask2
 import app.allever.android.lib.core.function.work.TimerTask2
 
 class VideoViewHandler : MediaPlayer.OnCompletionListener, MediaPlayer.OnPreparedListener {
@@ -80,13 +80,5 @@ class VideoViewHandler : MediaPlayer.OnCompletionListener, MediaPlayer.OnPrepare
 
     fun seekTo(value: Int) {
         mVideoView.seekTo(value)
-    }
-
-    interface StatusListener{
-        fun onPrepare(duration: Int)
-        fun onVideoPlay()
-        fun onVideoPause()
-        fun onVideoError()
-        fun onVideoPlaying(currentPosition: Int)
     }
 }

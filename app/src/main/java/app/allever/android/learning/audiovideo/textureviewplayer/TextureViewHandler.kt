@@ -7,6 +7,7 @@ import android.media.MediaPlayer
 import android.media.ThumbnailUtils
 import android.view.Surface
 import android.view.TextureView
+import app.allever.android.learning.audiovideo.StatusListener
 import app.allever.android.lib.core.ext.log
 import app.allever.android.lib.core.function.media.MediaBean
 import app.allever.android.lib.core.function.work.TimerTask2
@@ -64,14 +65,6 @@ class TextureViewHandler : MediaPlayer.OnCompletionListener, TextureView.Surface
 
     override fun onCompletion(mp: MediaPlayer?) {
         mStatusListener?.onVideoError()
-    }
-
-    interface StatusListener {
-        fun onPrepare(duration: Int)
-        fun onVideoPlay()
-        fun onVideoPause()
-        fun onVideoError()
-        fun onVideoPlaying(currentPosition: Int)
     }
 
     override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
