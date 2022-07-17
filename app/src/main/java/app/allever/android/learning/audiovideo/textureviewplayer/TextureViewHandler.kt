@@ -1,24 +1,20 @@
 package app.allever.android.learning.audiovideo.textureviewplayer
 
-import android.graphics.Color
 import android.graphics.SurfaceTexture
 import android.media.AudioManager
 import android.media.MediaPlayer
-import android.media.ThumbnailUtils
 import android.view.Surface
 import android.view.TextureView
+import app.allever.android.learning.audiovideo.BasePlayerHandler
 import app.allever.android.learning.audiovideo.StatusListener
 import app.allever.android.lib.core.ext.log
 import app.allever.android.lib.core.function.media.MediaBean
 import app.allever.android.lib.core.function.work.TimerTask2
 
-class TextureViewHandler : MediaPlayer.OnCompletionListener, TextureView.SurfaceTextureListener,
+class TextureViewHandler : BasePlayerHandler(),  TextureView.SurfaceTextureListener,
     MediaPlayer.OnPreparedListener {
 
     private lateinit var mTextureView: TextureView
-    private lateinit var mMediaBean: MediaBean
-    private var mStatusListener: StatusListener? = null
-    private lateinit var mMediaPlayer: MediaPlayer
     private lateinit var mSurface: Surface
 
     fun initVideoView(
@@ -38,33 +34,24 @@ class TextureViewHandler : MediaPlayer.OnCompletionListener, TextureView.Surface
         mStatusListener?.onVideoPlaying(mMediaPlayer.currentPosition)
     }
 
-    fun getMediaPlayer() = mMediaPlayer
-
-    fun isPlaying() = mMediaPlayer.isPlaying
-
-    fun play() {
+    override fun play() {
+        super.play()
         mMediaPlayer.start()
-        mStatusListener?.onVideoPlay()
-        timerTask.start()
     }
 
-    fun pause() {
+    override fun pause() {
+        super.pause()
         mMediaPlayer.pause()
-        timerTask.cancel()
-        mStatusListener?.onVideoPause()
     }
 
-    fun stop() {
-        timerTask.cancel()
+    override fun stop() {
+        super.stop()
         mMediaPlayer.stop()
     }
 
-    fun seekTo(value: Int) {
+    override fun seekTo(value: Int) {
+        super.seekTo(value)
         mMediaPlayer.seekTo(value)
-    }
-
-    override fun onCompletion(mp: MediaPlayer?) {
-        mStatusListener?.onVideoError()
     }
 
     override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
@@ -77,6 +64,7 @@ class TextureViewHandler : MediaPlayer.OnCompletionListener, TextureView.Surface
 
             mMediaPlayer.setSurface(mSurface)//添加渲染
             mMediaPlayer.setOnPreparedListener(this)
+            mMediaPlayer.setOnCompletionListener(this)
             mMediaPlayer.prepareAsync()
         } catch (e: Exception) {
             e.printStackTrace()
