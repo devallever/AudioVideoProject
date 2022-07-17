@@ -9,6 +9,12 @@ open class BasePlayerView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : ConstraintLayout(context, attrs) {
 
+    constructor(
+        basePlayerHandler: BasePlayerHandler,
+        context: Context,
+        attrs: AttributeSet? = null
+    ) : this(context, attrs)
+
     protected lateinit var mMediaBean: MediaBean
 
 
