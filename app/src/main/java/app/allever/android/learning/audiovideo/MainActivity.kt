@@ -14,6 +14,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         initTopBar("音视频", showBackIcon = false)
         RippleHelper.addRippleView(binding.btnVideoViewPlayer)
         RippleHelper.addRippleView(binding.btnTextureViewPlayer)
+        RippleHelper.addRippleView(binding.btnSurfaceViewPlayer)
 
         binding.btnVideoViewPlayer.setOnClickListener {
             ActivityHelper.startActivity(SelectMediaActivity::class.java) {
@@ -24,6 +25,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         binding.btnTextureViewPlayer.setOnClickListener {
             ActivityHelper.startActivity(SelectMediaActivity::class.java) {
                 putExtra("TYPE", 1)
+            }
+        }
+
+        binding.btnSurfaceViewPlayer.setOnClickListener {
+            ActivityHelper.startActivity(SelectMediaActivity::class.java) {
+                putExtra("TYPE", 2)
             }
         }
 
