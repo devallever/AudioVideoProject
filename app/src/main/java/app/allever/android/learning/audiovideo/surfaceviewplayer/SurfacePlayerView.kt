@@ -171,6 +171,7 @@ class SurfacePlayerView @JvmOverloads constructor(
         mMediaBean = mediaBean
         playerHandler.initVideoView(binding.videoView, mediaBean, this)
         binding.tvTitle.text = mMediaBean.name
+        changeVideoSize()
     }
 
     override fun onPrepare(duration: Int) {
@@ -204,8 +205,8 @@ class SurfacePlayerView @JvmOverloads constructor(
     //改变视频的尺寸自适应。
     private fun changeVideoSize() {
         binding.controlView.post {
-            val w: Float = playerHandler.getMediaPlayer()?.videoWidth?.toFloat() ?:0f
-            val h: Float = playerHandler.getMediaPlayer()?.videoHeight?.toFloat() ?:0f
+            val w: Float = mMediaBean.width.toFloat()
+            val h: Float = mMediaBean.height.toFloat()
             val sw: Float = binding.controlView.width.toFloat()
             val sh: Float = binding.controlView.height.toFloat()
 
