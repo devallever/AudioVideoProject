@@ -42,6 +42,11 @@
                     android:id="@+id/btnSurfaceViewPlayer"
                     style="@style/main_menu_item_style" />
 
+                <TextView
+                    android:text="AudioRecord录制音频"
+                    android:id="@+id/btnAudioRecord"
+                    style="@style/main_menu_item_style" />
+
             </LinearLayout>
 
         </ScrollView>
