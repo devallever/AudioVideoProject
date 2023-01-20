@@ -71,6 +71,13 @@
             android:layout_margin="5dp"
             android:text="AAC保存路径：" />
 
+        <Button
+            android:id="@+id/btnDecodeAac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="解码AAC" />
+
 
     </LinearLayout>
 

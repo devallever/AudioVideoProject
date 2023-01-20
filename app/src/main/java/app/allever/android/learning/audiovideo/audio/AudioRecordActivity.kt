@@ -81,6 +81,11 @@ class AudioRecordActivity : BaseActivity<ActivityAudioRecordBinding, AudioRecord
             songMediaPlayer.load(mAacPath)
             songMediaPlayer.play()
         }
+
+        binding.btnDecodeAac.setOnClickListener {
+
+
+        }
     }
 
     override fun onDestroy() {

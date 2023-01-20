@@ -6,6 +6,7 @@ import android.media.MediaCodecInfo
 import android.media.MediaFormat
 import app.allever.android.lib.core.app.App
 import app.allever.android.lib.core.ext.log
+import app.allever.android.lib.core.helper.ExecutorHelper
 import java.io.FileNotFoundException
 import java.io.IOException
 import java.nio.ByteBuffer
@@ -17,7 +18,7 @@ class MediaCodecAacThread(pcm: String, callback: EncodePcmCallback) :
 
     private val sampleRateInHz = 44100
 
-    private val maxInputSize = 1024
+    private val maxInputSize = 4096
 
     private lateinit var mediaCodec: MediaCodec
 
@@ -70,8 +71,6 @@ class MediaCodecAacThread(pcm: String, callback: EncodePcmCallback) :
 
 
         try {
-//            mediaCodec = MediaCodec.createEncoderByType(MediaFormat.MIMETYPE_AUDIO_AAC)
-//            mediaCodec.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
             mediaCodec.start()
             encodeInputBuffers = mediaCodec.inputBuffers.toMutableList()
             encodeOutputBuffers = mediaCodec.outputBuffers.toMutableList()
@@ -145,6 +144,7 @@ class MediaCodecAacThread(pcm: String, callback: EncodePcmCallback) :
                 outputIndex = mediaCodec.dequeueOutputBuffer(encodeBufferInfo, 0)
             }
         }
+
     }
 
     private fun release() {
